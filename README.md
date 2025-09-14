@@ -1,6 +1,5 @@
-<<<<<<< HEAD
+ HEAD
 # Netflix-GPT
-=======
 - Create React App
 - Configured TailwindCSS
 - Header
@@ -55,4 +54,4 @@
 - Added .env file
 - Adding .env file to gitignore
 - Made web page Responsive
->>>>>>> 284d6a3 (Initial commit - Netflix GPT project)
+
