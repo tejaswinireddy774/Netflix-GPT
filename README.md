@@ -1,1 +1,58 @@
+<<<<<<< HEAD
 # Netflix-GPT
+=======
+- Create React App
+- Configured TailwindCSS
+- Header
+- Routing of App
+- Login Form
+- Sign up Form
+- form validation's
+- creating an account in firebase
+    - npm install firebase
+    - create a firebase config ( firebase.js )
+    - npm i -g firebase tools
+    - firebase login
+    - firebase init
+    - firebase deploy
+- firebase setup
+- deploying our app to production
+- authentication for sign in n sign up
+- creating appstore redux
+- for dispatching an action using onAuth firebase libraby
+- sign out 
+- updating the user profile like display name
+- feature (in netflix if the user is Signed In then it doesnt go to login page even if v enter url)
+- useEffect will be called when ever the component is called so to avoid this - will be unscribing the onAuth after it is executed. in firebase there is unsubscribe function.
+- Add hardcoded values to constant files
+- movie detals will be fetched from TMDB
+- Register TMDB API's n create an app n get access tocken
+- Get Now Playing Movie List API from TMDB
+- Create a Custom Hook for NowPlayingMovies
+- as video is not available in list v need to fetch it through movie id in TMDB - movies - viseos( v can access it from here ) type - trailer
+# videobackground.js
+- Create movieSlice
+- Update Store with movies Data
+- Planning for MainContauiner & secondary container
+- Fetch Data for Trailer Video
+- Update Store with Trailer Video Data
+- Embedded the Yotube video and make it autoplay and mute
+- Tailwind Classes to make Main Container look awesome
+- Build Secondary Component
+- Build Movie List
+- build Movie Card
+- TMDB Image CDN URL
+- Made the Browsre page amazing with Tailwind CSS
+- usePopularMovies Custom hook
+- Multi language feature in App
+- create a OPEN_AI secret key
+- created gpt movie suggestion
+- gpt search 
+- playing trailer when clicked on play button
+- add list store
+- Resused Movie List component to make movie suggestion container
+- Memoization
+- Added .env file
+- Adding .env file to gitignore
+- Made web page Responsive
+>>>>>>> 284d6a3 (Initial commit - Netflix GPT project)
