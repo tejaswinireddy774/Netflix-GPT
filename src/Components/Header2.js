@@ -113,7 +113,7 @@ useEffect(() => {
 
 
   return (
-   <header
+  <header
   className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300
     ${forceBlack ? "bg-black" : (isScrolled ? "bg-black" : "bg-gradient-to-b from-black/60 to-transparent")}
   `}
@@ -128,7 +128,8 @@ useEffect(() => {
         className="h-[32px] w-auto sm:h-[40px] md:h-[50px] lg:h-[60px] object-contain"
       />
 
-      <nav className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4 text-white font-medium">
+      {/* Desktop Nav */}
+      <nav className="hidden sm:flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4 text-white font-medium">
         <Link
           to="/browser"
           className="px-2 sm:px-3 py-1 text-[13px] sm:text-[15px] md:text-[16px] lg:text-[18px] hover:text-gray-300"
@@ -154,6 +155,33 @@ useEffect(() => {
           TV Shows
         </Link>
       </nav>
+
+      {/* Mobile Nav (Dropdown) */}
+      <div className="sm:hidden relative">
+        <button
+          onClick={() => setShowInput((prev) => !prev)}
+          className="text-white focus:outline-none"
+        >
+          <i className="fa-solid fa-bars text-lg"></i>
+        </button>
+
+        {showInput && (
+          <div className="absolute top-10 left-0 bg-black/90 rounded-lg shadow-lg flex flex-col p-2 space-y-2 w-36 z-50">
+            <Link to="/browser" className="text-white hover:text-gray-300">
+              Home
+            </Link>
+            <Link to="/my-list" className="text-white hover:text-gray-300">
+              My List
+            </Link>
+            <Link to="/browse/movies" className="text-white hover:text-gray-300">
+              Movies
+            </Link>
+            <Link to="/browse/tv-shows" className="text-white hover:text-gray-300">
+              TV Shows
+            </Link>
+          </div>
+        )}
+      </div>
     </div>
 
     {/* Right section (Search + Sign Out) */}
@@ -192,7 +220,6 @@ useEffect(() => {
     </div>
   </div>
 </header>
-
 
   );
 };
