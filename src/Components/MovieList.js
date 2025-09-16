@@ -32,6 +32,7 @@ const MovieList = ({
               // 👇 if TMDB gave media_type, use it; else fallback to list's type
               mediaType={item.media_type || type}
              rank={showRank ? index + 1 : null}  
+              disableHover={disableHover}
             />
           ))}
         </div>
