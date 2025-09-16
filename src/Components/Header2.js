@@ -57,8 +57,8 @@ const Header2 = ({ forceBlack = false }) => {
 - Always include the searched movie or TV show name in the results (if it exists), followed by 4 similar or related titles. 
 - If the query is a genre, mood, or theme, suggest 5 titles that match it. 
 - Respond with only the names, separated by commas. 
-Example result: Good Will Hunting, Dead Poets Society, The Social Network, A Beautiful Mind, Rain Man`
-},
+Example result: Good Will Hunting, Dead Poets Society, The Social Network, A Beautiful Mind, Rain Man`},
+
           
         ],
       });
@@ -83,7 +83,7 @@ Example result: Good Will Hunting, Dead Poets Society, The Social Network, A Bea
     dispatch(addGptMovieResult({tmdbResults}));
   }
 
-  // helper: search movie in TMDB
+  
   const searchMovieTMDB = async (movie) => {
     const data = await fetch(
       "https://api.themoviedb.org/3/search/multi?query=" +
@@ -118,58 +118,50 @@ useEffect(() => {
     ${forceBlack ? "bg-black" : (isScrolled ? "bg-black" : "bg-gradient-to-b from-black/60 to-transparent")}
   `}
 >
-  <div className="flex flex-row items-center justify-between max-w-[80rem] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-3 sm:py-4">
-    <div className="flex items-center space-x-4 sm:space-x-6">
-    <img
-      src={netflix_logo}
-      alt="Netflix Logo"
-      className="h-[40px] w-[100px] sm:h-[50px] sm:w-[130px] md:h-[60px] md:w-[160px] object-contain"
-    />
-    <div className="flex items-center space-x-0.5 ">
-  <Link
-    to="/browser"
-    className="px-2 sm:px-3 py-1 sm:py-1.5 rounded-2xl text-white font-medium 
-          text-[16px] sm:text-[14px] md:text-[18px] 
-          text-[#fdfbfc] hover:text-[#cfcece] transition-colors duration-200"
-  >
-    Home
-  </Link>
-  <Link
-    to="/my-list"
-    className="px-2 sm:px-3 py-1 sm:py-1.5 rounded-2xl text-white font-medium 
-          text-[16px] sm:text-[14px] md:text-[18px] 
-          text-[#fdfbfc] hover:text-[#cfcece] transition-colors duration-200"
-  >
-    My List
-  </Link>
+  <div className="flex flex-wrap items-center justify-between max-w-[90rem] mx-auto 
+                  px-3 sm:px-5 md:px-8 lg:px-12 py-2 sm:py-3 md:py-4 gap-y-2">
+    {/* Left section (Logo + Nav links) */}
+    <div className="flex flex-wrap items-center gap-3 sm:gap-5 md:gap-7">
+      <img
+        src={netflix_logo}
+        alt="Netflix Logo"
+        className="h-[32px] w-auto sm:h-[40px] md:h-[50px] lg:h-[60px] object-contain"
+      />
 
-  {/* ✅ New Tabs */}
-  <Link
-    to="/browse/movies"
-    className="px-2 sm:px-3 py-1 sm:py-1.5 rounded-2xl text-white font-medium 
-          text-[16px] sm:text-[14px] md:text-[18px] 
-          text-[#fdfbfc] hover:text-[#cfcece] transition-colors duration-200"
-  >
-    Movies
-  </Link>
-  <Link
-    to="/browse/tv-shows"
-    className="px-2 sm:px-3 py-1 sm:py-1.5 rounded-2xl text-white font-medium 
-          text-[16px] sm:text-[14px] md:text-[18px] 
-          text-[#fdfbfc] hover:text-[#cfcece] transition-colors duration-200"
-  >
-    TV Shows
-  </Link>
-</div>
-
+      <nav className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4 text-white font-medium">
+        <Link
+          to="/browser"
+          className="px-2 sm:px-3 py-1 text-[13px] sm:text-[15px] md:text-[16px] lg:text-[18px] hover:text-gray-300"
+        >
+          Home
+        </Link>
+        <Link
+          to="/my-list"
+          className="px-2 sm:px-3 py-1 text-[13px] sm:text-[15px] md:text-[16px] lg:text-[18px] hover:text-gray-300"
+        >
+          My List
+        </Link>
+        <Link
+          to="/browse/movies"
+          className="px-2 sm:px-3 py-1 text-[13px] sm:text-[15px] md:text-[16px] lg:text-[18px] hover:text-gray-300"
+        >
+          Movies
+        </Link>
+        <Link
+          to="/browse/tv-shows"
+          className="px-2 sm:px-3 py-1 text-[13px] sm:text-[15px] md:text-[16px] lg:text-[18px] hover:text-gray-300"
+        >
+          TV Shows
+        </Link>
+      </nav>
     </div>
 
-    <div className="flex items-center space-x-3 sm:space-x-5">
-      {/* wrapper with ref */}
+    {/* Right section (Search + Sign Out) */}
+    <div className="flex items-center gap-2 sm:gap-4 md:gap-5">
       <div ref={wrapperRef} className="relative flex items-center">
         <button
           onClick={() => setShowInput((prev) => !prev)}
-          className="mr-2 sm:mr-4 md:mr-5"
+          className="mr-1 sm:mr-2 md:mr-3"
         >
           <i className="fa-solid fa-magnifying-glass text-white text-lg sm:text-xl md:text-2xl"></i>
         </button>
@@ -179,26 +171,28 @@ useEffect(() => {
           placeholder="Search..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className={`absolute right-10 sm:right-12 px-2 sm:px-3 py-1 mx-1 rounded-xl border border-gray-400 
-            bg-black/30 backdrop-blur-sm text-white placeholder-gray-300
-            transition-all duration-300 ease-in-out 
-            text-sm sm:text-base
-            ${showInput ? "opacity-100 w-36 sm:w-48 md:w-56" : "opacity-0 w-0 overflow-hidden"}`}
+          className={`absolute right-9 sm:right-11 md:right-12 px-2 sm:px-3 py-1 
+            rounded-xl border border-gray-400 bg-black/30 backdrop-blur-sm 
+            text-white placeholder-gray-300 transition-all duration-300 ease-in-out 
+            text-xs sm:text-sm md:text-base
+            ${showInput ? "opacity-100 w-28 sm:w-40 md:w-52 lg:w-64" : "opacity-0 w-0 overflow-hidden"}`}
         />
       </div>
 
       <button
         onClick={handleSignOut}
         aria-label="Sign out"
-        className="px-2 sm:px-3 py-1 sm:py-1.5 rounded-2xl text-white font-medium 
-          text-[12px] sm:text-[14px] md:text-[15px] 
-          bg-[#e80c25] hover:bg-[#c80b20] transition-colors duration-200"
+        className="px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 rounded-xl sm:rounded-2xl 
+          text-[11px] sm:text-[13px] md:text-[15px] 
+          bg-[#e80c25] hover:bg-[#c80b20] text-white font-medium 
+          transition-colors duration-200"
       >
         Sign Out
       </button>
     </div>
   </div>
 </header>
+
 
   );
 };
