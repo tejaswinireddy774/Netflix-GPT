@@ -6,7 +6,7 @@ import { GENRES } from "../Utils/Constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addToList, removeFromList } from "../Utils/myListSlice";
 
-const MovieCards = ({ posterPath, movieId, title, genres = [], mediaType, rank, disableHover }) => {
+const MovieCards = ({ posterPath, movieId, title, genres = [], mediaType, rank, disableHover, rank }) => {
   const [hovered, setHovered] = useState(false);
   const [coords, setCoords] = useState({ x: 0, y: 0 });
   const hoverTimeout = useRef(null);
