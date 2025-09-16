@@ -31,7 +31,7 @@ const MovieList = ({
               genres={item.genre_ids}
               // 👇 if TMDB gave media_type, use it; else fallback to list's type
               mediaType={item.media_type || type}
-              rank = {showRank}
+             rank={showRank ? index + 1 : null}  
             />
           ))}
         </div>
