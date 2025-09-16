@@ -22,13 +22,12 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
- "scripts": {
-  "start": "react-scripts start",
-  "build": "react-scripts build",
-  "test": "react-scripts test",
-  "eject": "react-scripts eject"
-},
-
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "CI=false react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -50,6 +49,7 @@
   "devDependencies": {
     "@reduxjs/toolkit": "^2.8.2",
     "autoprefixer": "^10.4.21",
+    "eslint": "^8.57.1",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17"
   }
