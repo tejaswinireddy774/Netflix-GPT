@@ -32,6 +32,8 @@ const gptPrompt = `You are a Movie Recommendation System. Based on the user quer
         const textResponse = gptResponse.choices[0]?.message?.content || "";
         const movieNames = textResponse.split(",").map((name) => name.trim());
 
+        console.log(movieNames, " GPT Movie Names");
+
         // 2. Fetch from TMDB for each movie
         const tmdbResults = await Promise.all(
           movieNames.map(async (movie) => {
@@ -62,6 +64,8 @@ const gptPrompt = `You are a Movie Recommendation System. Based on the user quer
   }
 
   const flattenedMovies = gptResults.tmdbResults.flat();
+
+  console.log(flattenedMovies," flattenedMovies");
 
   return (
    <div className="pt-[80px] p-2 sm:p-3 md:p-4 lg:p-6 xl:p-8 bg-black bg-opacity-90">

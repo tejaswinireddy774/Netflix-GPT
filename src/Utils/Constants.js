@@ -2,7 +2,7 @@ export const API_Options = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMDcwNGUxNjYzOGY3NDVkODQ0OTM5MTdjNjg3ZjYzMCIsIm5iZiI6MTc1NTAyMDMyMC4zMTIsInN1YiI6IjY4OWI3YzIwYjIwZWRhYTg3MjVlM2Y2MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1ywoyCkQGfdjvhomctdZo2Lw6ZUTec382c4L-LR2mPA'
+    Authorization: 'Bearer' + ' ' + process.env.REACT_APP_TMDB_KEY,
   }
 };
 
@@ -13,7 +13,9 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "hindi", name: "Hindi" },
   ];
 
-export const OPENAI_GPT_KEY ="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";
+export const OPENROUTER_KEY = process.env.REACT_APP_OPENROUTER_KEY;
+
+console.log("OPENAI KEY from env:", process.env.REACT_APP_OPENROUTER_KEY);
 
 export const GENRES = {
   28: "Action",
